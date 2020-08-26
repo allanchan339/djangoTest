@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
         # own apps
     'accounts',
+    'django_filters'
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,4 @@ STATICFILES_DIRS = [
         os.path.join(BASE_DIR, 'static')
         #to find the dir where storing static files
         ]
+
