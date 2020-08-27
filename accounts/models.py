@@ -1,10 +1,13 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 
 class Customer(models.Model):
+    #connect User&group to Customer table
+    user = models.OneToOneField(User, null = True, on_delete = models.CASCADE)
+    # https://stackoverflow.com/questions/38388423/what-does-on-delete-do-on-django-models
     name = models.CharField(max_length = 200, null = True)
     phone = models.CharField(max_length = 200, null = True)
     email = models.CharField(max_length = 200, null = True)
@@ -13,6 +16,7 @@ class Customer(models.Model):
     def __str__(self):
         return self.name
     # report the name when display in admin panel
+
 
 class Tag(models.Model):
     name = models.CharField(max_length = 200, null = True)

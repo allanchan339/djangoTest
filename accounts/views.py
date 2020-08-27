@@ -30,8 +30,15 @@ def home(request):
     return render(request, 'accounts/dashboard.html', context)
 
 
+@login_required(login_url = 'login')
+@allowed_users(allowed_roles = ['customer', ])
 def userPage(request):
-    context = {}
+    orders = request.user.customer.order_set.all()
+    print('ORDERS:', orders)
+    total_orders = orders.count()
+    delivered = orders.filter(status = 'Delivered').count()
+    pending = orders.filter(status = 'Pending').count()  # this status is the database columns
+    context = {'orders': orders, 'delivered': delivered, 'pending': pending, 'total_orders': total_orders}
     return render(request, 'accounts/user.html', context)
 
 
@@ -116,6 +123,7 @@ def registerPage(request):
                 username = form.cleaned_data.get('username')
                 group = Group.objects.get(name = 'customer')
                 user.groups.add(group)
+                Customer.objects.create(user = user)
                 messages.success(request, 'Account was created for ' + username)
                 return redirect('login')
         context = {'form': form}
