@@ -127,3 +127,4 @@ STATICFILES_DIRS = [
         #to find the dir where storing static files
         ]
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')

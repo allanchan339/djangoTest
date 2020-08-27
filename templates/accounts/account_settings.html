@@ -1,0 +1,45 @@
+{%  extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+
+    <style>
+        .profile-pic{
+            max-width: 200px;
+            max-height:200px;
+            margin: 0 auto;
+            border-radius: 50%;
+        }
+    </style>
+
+    <br>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card card-body">
+                <a class="btn btn-warning" href="{% url 'home' %}"> &#8592; Back to Profile</a>
+                <hr>
+                <h3 style="text-align: center">Account Settings</h3>
+                <hr>
+                <img class="profile-pic" src="{{request.user.customer.profile_pic.url}}" >
+
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card card-body">
+
+                <form method="POST" action="" enctype="multipart/form-data">
+{#                     enctype 属性规定在发送到服务器之前应该如何对表单数据进行编码。#}
+{#                    multipart/form-data： 不對字元編碼，在使用包含檔案上傳控制元件的表單時，必須使用該值。 #}
+{#                    because we have image#}
+                    {% csrf_token %}
+                    {{form.as_p}}
+{#                    will use <p> to seperate#}
+
+                    <input class="btn btn-primary" type="submit" name="Update Information">
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
