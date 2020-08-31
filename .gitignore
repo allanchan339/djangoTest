@@ -72,3 +72,19 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 
+.idea/dataSources.xml
+.idea/djangoTest.iml
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+accounts/__pycache__/
+accounts/migrations/0007_order_note.py
+accounts/migrations/0008_customer_user.py
+accounts/migrations/0009_customer_profile_pic.py
+accounts/migrations/__pycache__/
+djangoTest/__pycache__/
+static/images/img003.jpg
+static/js/
+#too much pw problem
+djangoTest/settings.py
