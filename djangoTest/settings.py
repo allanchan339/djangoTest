@@ -37,7 +37,8 @@ INSTALLED_APPS = [
         'django.contrib.staticfiles',
         # own apps
         'accounts.apps.AccountsConfig',
-        'django_filters'
+        'django_filters',
+        'storages'  # used for AWS S3 buckets storages
         ]
 
 MIDDLEWARE = [
@@ -135,3 +136,15 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'djangotestforallan@gmail.com'
 EMAIL_HOST_PASSWORD = 'allanfortestdjango'
+
+# S3 BUCKETS CONFIG
+AWS_S3_HOST = "s3.us-east-2.amazonaws.com"
+AWS_S3_REGION_NAME = "us-east-2"
+AWS_S3_SIGNATURE_VERSION = 's3v4'
+AWS_ACCESS_KEY_ID = 'AKIA54BDMJ55ALWWBHUH'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'allan-crm1-bucket'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
