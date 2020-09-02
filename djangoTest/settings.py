@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'h!4q%@w(s3t=po(e*nf+7-*p3!gosae^l0@$97s@&qo83!5c3k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://allan-crm1.herokuapp.com', 'localhost']
 
 # Application definition
 
