@@ -7,7 +7,6 @@ django-storages
 docutils
 gunicorn
 jmespath
-Pillow
 pthon-dateutil
 pytz
 s3transfer
