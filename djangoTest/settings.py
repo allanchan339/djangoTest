@@ -49,6 +49,7 @@ MIDDLEWARE = [
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
+        'whitenoise.middleware.WhiteNoiseMiddleware' #to handle heroku for staticfiles
         ]
 
 ROOT_URLCONF = 'djangoTest.urls'
@@ -122,6 +123,10 @@ USE_TZ = True
 key1 = '5bJocJ3NHXOM6cEl9lNlj'
 key2 = 'AKIA54BDMJ55ALWWBHUH'
 
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#
 STATIC_URL = '/static/'
 MEDIA_URL = '/images/'
 STATICFILES_DIRS = [
