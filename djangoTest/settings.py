@@ -43,13 +43,15 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
         'django.middleware.security.SecurityMiddleware',
+
+        'whitenoise.middleware.WhiteNoiseMiddleware'  # to handle heroku for staticfiles
+        
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
         'django.middleware.csrf.CsrfViewMiddleware',
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
-        'whitenoise.middleware.WhiteNoiseMiddleware' #to handle heroku for staticfiles
         ]
 
 ROOT_URLCONF = 'djangoTest.urls'
@@ -123,8 +125,6 @@ USE_TZ = True
 key1 = '5bJocJ3NHXOM6cEl9lNlj'
 key2 = 'AKIA54BDMJ55ALWWBHUH'
 
-
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #
 STATIC_URL = '/static/'
@@ -148,7 +148,7 @@ EMAIL_HOST_PASSWORD = 'allanfortestdjango'
 AWS_S3_HOST = "s3.us-east-2.amazonaws.com"
 AWS_S3_REGION_NAME = "us-east-2"
 AWS_S3_SIGNATURE_VERSION = 's3v4'
-AWS_ACCESS_KEY_ID = key1+key2
+AWS_ACCESS_KEY_ID = key1 + key2
 AWS_SECRET_ACCESS_KEY = 'WmpVwL49tqAorgaotSl'
 AWS_STORAGE_BUCKET_NAME = 'allan-crm1-bucket'
 AWS_S3_FILE_OVERWRITE = False
